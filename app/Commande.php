@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Commande extends Model
 {
     //désigner les champs modifiables
-    protected $fillable = ['nom', 'prenom', 'telephone', 'email'];
+    protected $fillable = ['commande'];
 
     //fonction pour récupérer la liste des commandes
     public function commandes(){
-        return $this->hasMany(Commande::class);
+        return $this->belongsTo(Client::class);
     }
 }

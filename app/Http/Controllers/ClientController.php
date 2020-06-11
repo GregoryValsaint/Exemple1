@@ -15,7 +15,15 @@ class ClientController extends Controller
     public function index()
     {
         //
-        $listeClients = Client::all();
+        //1. Sélectionner les clients
+        $listeClients = Client::all()->toArray();
+
+        //2. 
+        foreach ($listeClients as $c) {
+            $listeCom = $c->commandes();
+        }
+
+        dd($listeCom);
     }
 
     /**
